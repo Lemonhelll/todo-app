@@ -1,0 +1,26 @@
+package service
+
+import (
+	myTodo_app "myTodo-app"
+	"myTodo-app/pkg/repository"
+)
+
+type Authorization interface {
+	CreateUser(user myTodo_app.User) (int, error)
+}
+
+type TodoList interface {
+}
+
+type TodoItem interface {
+}
+
+type Service struct {
+	Authorization
+	TodoList
+	TodoItem
+}
+
+func NewService(repos *repository.Repository) *Service {
+	return &Service{}
+}
